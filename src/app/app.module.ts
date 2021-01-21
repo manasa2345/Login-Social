@@ -16,6 +16,7 @@ import { SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider } from 'a
 import { LoginComponent } from './login/login.component';
 
 import { LinkedInService } from './services/linked-in.service';
+import { MendeleyService } from './services/mendeley.service';
 
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
 
@@ -37,7 +38,7 @@ import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular
     IconModule,
     IconSetModule.forRoot()
   ],
-  providers: [LinkedInService, IconSetService,
+  providers: [LinkedInService, IconSetService, MendeleyService,
     // TwitterService,
     {
       provide: 'SocialAuthServiceConfig',

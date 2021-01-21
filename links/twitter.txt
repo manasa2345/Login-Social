@@ -1,0 +1,14 @@
+Consumer Key:
+q7RCfHxv2bQqqGVYhJhZ9yNxq
+
+Consumer Secret:
+ledFgjRj99k8RQHRXKUi0FgYyubjTAAtYP0ZFNsdzgPYaJSClI
+
+Bearer Token:
+AAAAAAAAAAAAAAAAAAAAAAxnLgEAAAAAIG34rTWCa11ud1G7%2B4DZlgyWnEY%3DlUAbb78yEdLNYkwB4GC7M1f6w9lzNDXwFua8OBXfXKh549bpFQ
+
+Access Token:
+3230877158-x7gzpu6TjG7VRKc4lzj1JcQjxybIzNhjIzi6fQk
+
+Access Token Secret:
+ZnWqIF9kZPx9zp9MH4KE0hKR9wn0ybgbg8DTY4fyQHWaw

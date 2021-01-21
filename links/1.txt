@@ -1,0 +1,14 @@
+google
+https://www.youtube.com/watch?v=zZc-wFnToq4
+
+Facebook
+https://www.youtube.com/watch?v=4VfdpuUwOE8
+
+LinkedIn
+https://esther-liao.medium.com/how-to-get-a-linkedin-access-token-a53f9b62f0ce
+https://www.youtube.com/watch?v=jYflkIo1R4A&t=782s
+
+
+Mendeley
+https://dev.mendeley.com/reference/topics/authorization_auth_code.html
+https://dev.mendeley.com/methods/#retrieving-the-logged-in-user's-profile

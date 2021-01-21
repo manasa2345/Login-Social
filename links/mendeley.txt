@@ -1,0 +1,48 @@
+App ID:
+9386
+
+
+Secret
+JxXY0TeUQPbqlS8n
+
+
+ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -u 9386:JxXY0TeUQPbqlS8n -d "grant_type=client_credentials&scope=all" https://api.mendeley.com/oauth/token
+
+
+
+ion/x-www-form-urlencoded" -u 9386:JxXY0TeUQPbqlS8n -d "grant_type=client_credentials&scope=all" https://api.mendeley.com/oauth/token
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   217  100   178  100    39    183     40 --:--:-- --:--:-- --:--:--   223{"access_token":"MSwxNjEwMzQ4NzgwOTI5LCw5Mzg2LGFsbCwsNnpFcDY0MUVWSi00Y3hiMmNQLTEtclNmN3pV","token_type":"bearer","expires_in":3599,"refresh_token":null,"msso":null,"scope":"all"}
+
+Manasa@LAPTOP-37TMCC5A MINGW64 ~
+$ ^C
+
+curl 'https://api.mendeley.com/profiles/me' -H 'Authorization: Bearer MSwxNjEwNDM4ODk2ODg1LDUxOTc0MDc2MSw5Mzg2LGFsbCwsLGM0ZWY3ZGIyNzYzYzA1NGU2NDlhN2E0MTYxMzM4ZGRmMGIxZGd4cnFiLDZmZmU0ZjZiLTUxNmMtMzNhYS1iNTUzLTFhYjA1OTY5MTYwNCw5XzYzemlteDRqOEpEYUVtQ2I2Vmk2amh0RGc' -H 'Accept: application/vnd.mendeley-profiles.1+json'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://api.mendeley.com/oauth/authorize?client_id=9386&redirect_uri=http://localhost:4200/&response_type=code&scope=all&state=98765432123456
+
+
+
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -u "9386:JxXY0TeUQPbqlS8n" -d "grant_type=authorization_code&code=25JGbloKnv_0gDzmUzIySsr9fEQ&redirect_uri=http://localhost:4200/" https://api.mendeley.com/oauth/token
+
+
+curl 'https://api.mendeley.com/profiles/me' -H 'Authorization: Bearer "MSwxNjEwNzA1NjM3NzM5LDUxOTc0MDc2MSw5Mzg2LGFsbCwsLDcyZGZiODNiNTFhMjk4NDYzNTVhYTFmMTU4YzMyZDQ1NGI1NGd4cnFiLDZmZmU0ZjZiLTUxNmMtMzNhYS1iNTUzLTFhYjA1OTY5MTYwNCxlLTFSYkZGdnBpMGsycHdMeU9sYjc3aHpBZjQ' -H 'Accept: application/vnd.mendeley-profiles.1+json'
+
+
+
+
+

@@ -1,0 +1,23 @@
+https://www.linkedin.com/oauth/v2/authorization?response_type=code&state=987654321&scope=r_emailaddress&client_id=86fq687nbiqrrq&redirect_uri=http%3A%2F%2Flocalhost%3A4200
+
+
+https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&client_id=86fq687nbiqrrq&client_secret=IoeBUC21fpWrlGpL&code=AQQxzNqwXwEG4BYHUV8g6W_PynDlLJoI5s3xq4TDWYbVfxYZB_Y4ybmjIPGptl8UUIfHXrt_HRByfWkqMVXeXA_cTbKjmtxu5te_R9bB7p-xjErDej3upXsLYxmwPRZq1iQpwAW6nCH0sbmBnYdut3WwbOkK4pxFgA2AxvjLkAve_aeFO6so-HYUeFvPDg&redirect_uri=http%3A%2F%2Flocalhost%3A4200
+
+
+https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))&oauth2_access_token=AQUDYHc0lp3nxW0-QOC4ab5SOWTjw5UuikkPkIMZPFMEhCS6F4yfI7mktjnKqkrT_8fsI62JB_3mNbgE-gyPMrkA0eCV1QQbE_pIGNebvXPb9cgUj5L4_k2mFKWEUNHsmXaeSdrk6U34NpIg6BmSOkPdEE0brKl6lzGziN7vvC7uP1MAg7HJX-G2WDJA-jAN4S5TFWYAZxLdXTP4UXEy5GhPN6UxptkPKcq5VTl0BYXBiycKkuSq0COklceXHk_hxbCeNdIoidUBkXZ4kxxGMnp3Cqy3sblySEiT4Lt4AOul3FS0ART7MErcNDooIxsykYD2Bjp0F7yvbteQh2PoSN2xRkCSlg
+
+
+
+
+
+
+curl -ik -X POST https://www.linkedin.com/oauth/v2/accessToken \
+-d grant_type=authorization_code \
+-d code=code \
+-d redirect_uri=http%3A%2F%2Flocalhost%3A4200 \
+-d client_id=client_id \
+-d client_secret=client_secret
+
+
+
+https://api.linkedin.com/v2/me?oauth2_access_token=AQVrpBExyiShKYZgARH0nXYE4NlNS4AxLeFJjJD3wmIR0q6jnTvARrtlV5oqb_W6HFWMe_iKkEdclUMvSQ0ALOSYjqoaSi-q_OvqQfvMeezSAxGY8cHvX5PyMorj0fyAanHJaN4n6xqx6rZHX81NiOVZ6VsJ5I1LhtteS8VXGx2JHG1Ug8sNphBuOVxaXLe2uw8ui3dVY7PeXspOXiPPwnnhU3D84KwQFMQagRjZyx7C5NgQcu1VirXZvuXhMBNW4aI-J_6tsYlhf5ey43kMhNHsd-Wn7V_sVcE4oJNBR04smvX9kUYyxpHykRupD-43zzZFK2B-QWMRC8W7UgYELKg5izCXhA
