@@ -1,0 +1,29 @@
+<!-- If the user is not logged in  -->
+<div *ngIf="!user" class="card text-center">
+  <h6 class="card-header">IDEA ELAN Login</h6>
+  <div class="card-block">
+    <h4 class="card-title">Not Signed In</h4>
+    <p class="card-text">Sign In with</p>
+  </div>
+  <div class="card-block">
+    <button class="btn btn-social-icon btn-google mx-1 margins" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
+    <button class="btn btn-social-icon btn-facebook mx-1 margins" (click)="signInWithFacebook()"><span class="fa fa-facebook"></span></button>
+    <button class="btn btn-social-icon btn-linkedin mx-1 margins" (click)="signInWithLinkedin()"><span class="fa fa-linkedin"></span></button>
+    <button class="btn btn-social-icon btn-pinterest mx-1 margins" (click)="signInWithMendeley()"><c-icon name="cib-mendeley" size="2xl"></c-icon></button>
+    <button class="btn btn-social-icon btn-twitter mx-1 margins" (click)="signInWithTwitter()"><span class="fa fa-twitter"></span></button>
+    <p>Your linkedIn code = {{ linkedInCode }}</p>
+
+
+  </div>
+  <div *ngIf="!statusBool" class="card-block">
+    <p>Not a valid user</p>
+  </div>
+</div>
+
+<!-- If the user is looged in -->
+<div *ngIf="user" class="card text-center">
+  <div class="card-header">IDEA ELAN Login</div>
+  <div class="card-block">
+    <div class="card-text">{{user.email}}</div>
+  </div>
+</div>

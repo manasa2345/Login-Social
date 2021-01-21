@@ -1,0 +1,10 @@
+{
+  "/api/*": {
+      "target": "https://www.linkedin.com/oauth/v2/accessToken",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+  }
+}
