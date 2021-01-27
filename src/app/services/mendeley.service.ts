@@ -8,7 +8,7 @@ export class MendeleyService {
 
   MendeleyCredentials = {
     clientId: "9386",
-    redirectUrl: "http%3A%2F%2Flocalhost%3A4200",
+    redirectUrl: "http://localhost:4200/",
     clientSecret: "JxXY0TeUQPbqlS8n"
   };
 
@@ -19,34 +19,31 @@ export class MendeleyService {
   constructor(private http: HttpClient) { }
 
   getMendeleyApi(mendeleyCode: any) {
-    // return this.http.get(`https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&client_id=${
-    //   this.MendeleyCredentials.clientId
-    // }&client_secret=${
-    //   this.MendeleyCredentials.clientSecret
-    // }&code=${
-    //   linkedInCode
-    // }&redirect_uri=${
-    //   this.MendeleyCredentials.redirectUrl
-    // }`);
 
 
     this.link = 'https://api.mendeley.com/oauth/token';
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    headers.append('Authorization', btoa(`${this.MendeleyCredentials.clientId}:${this.MendeleyCredentials.clientSecret}`));
-    headers.set('Access-Control-Allow-Origin', "*");
-    headers.set("Content-Type", "application/json");
-    headers.set("Access-Control-Expose-Headers", "Content-Length");
-
-    let params = new HttpParams();
-    params.append('grant_type','client_credentials');
-    params.append('scope','all');
-
-    return this.http.post(this.link, {
-      headers: headers,
-      params: params
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + btoa(`${this.MendeleyCredentials.clientId}:${this.MendeleyCredentials.clientSecret}`)
     });
 
+
+    let params = new HttpParams()
+    .set('grant_type','authorization_code')
+    .set('code', mendeleyCode)
+    .set('redirect_uri',this.MendeleyCredentials.redirectUrl);
+
+    return this.http.post(this.link, params.toString(), { headers: httpHeaders });
+
+  }
+
+  getMendeleyDetails(mendeleyAccessCode: any) {
+    this.link = "https://api.mendeley.com/profiles/me";
+    const httpHeaders = new HttpHeaders({
+      'Authorization': 'Bearer ' + mendeleyAccessCode,
+      'Accept': 'application/vnd.mendeley-profiles.1+json'
+    });
+    return this.http.get(this.link,{headers: httpHeaders});
   }
 
 }

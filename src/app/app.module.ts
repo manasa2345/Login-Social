@@ -9,14 +9,11 @@ import { AppComponent } from './app.component';
 import { SocialAuthService, SocialAuthServiceConfig } from 'angularx-social-login';
 import { SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 
-// import { from } from 'rxjs';
-// import 'rxjs/add/operator/catch';
-// import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-
 import { LoginComponent } from './login/login.component';
 
 import { LinkedInService } from './services/linked-in.service';
 import { MendeleyService } from './services/mendeley.service';
+import { TwitterService } from './services/twitter.service';
 
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
 
@@ -39,7 +36,7 @@ import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular
     IconSetModule.forRoot()
   ],
   providers: [LinkedInService, IconSetService, MendeleyService,
-    // TwitterService,
+    TwitterService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

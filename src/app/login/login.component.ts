@@ -6,6 +6,7 @@ import { SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider } from 'a
 
 import { LinkedInService } from '../services/linked-in.service';
 import { MendeleyService } from '../services/mendeley.service';
+import { TwitterService } from '../services/twitter.service';
 
 //For Mendeley icon
 import { cibMendeley } from '@coreui/icons';
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
     private linkedInApi: LinkedInService,
     public iconSet: IconSetService,
     private mendeleyApi: MendeleyService,
-    // private twitter: TwitterService
+    private twitterApi: TwitterService,
     private http: HttpClient
     )
   {
@@ -60,13 +61,24 @@ export class LoginComponent implements OnInit {
           this.linkedInCode = params.code;
 
           if(params.code.length == 27) {
-            this.mendeleyApi.getMendeleyApi(this.linkedInCode).subscribe((result)=>{
-              console.log(result);
+            //To get access token
+            this.mendeleyApi.getMendeleyApi(this.linkedInCode).toPromise().then((data: any) => {
+              console.log(data);
+              //To get email ID
+              this.mendeleyApi.getMendeleyDetails(data.access_token).subscribe((result)=>{
+                console.log(result);
+              });
             });
           }
           else {
-             this.linkedInApi.getLinkedInApi(this.linkedInCode).subscribe((result)=>{
-              console.log(result);
+            //To get access token
+             this.linkedInApi.getLinkedInApi(this.linkedInCode).toPromise().then((data: any) => {
+              console.log(data);
+              //To get the email ID
+              this.linkedInApi.getLinkedInDetails(data.access_token).subscribe((result)=>{
+                console.log(result);
+                console.log(result.elements[0]['handle~'].emailAddress);
+              });
             });
           }
 
@@ -75,7 +87,7 @@ export class LoginComponent implements OnInit {
       }
     );
 
-    // The state is checked here if the user is logged in or not
+    // The state is checked here if the user is logged in or not for google and fb
     this.socialAuthService.authState.subscribe((user) => {
       this.user = user;
       console.log(user);
@@ -110,22 +122,7 @@ export class LoginComponent implements OnInit {
   }
 
   signInWithTwitter(): void {
-    // this.twitter.get(
-    //   'https://api.twitter.com/1.1/account/verify_credentials.json',
-    //   {
-    //     count: 5
-    //   },
-    //   {
-    //     consumerKey: 'q7RCfHxv2bQqqGVYhJhZ9yNxq',
-    //     consumerSecret: 'ledFgjRj99k8RQHRXKUi0FgYyubjTAAtYP0ZFNsdzgPYaJSClI'
-    //   },
-    //   {
-    //     token: '3230877158-x7gzpu6TjG7VRKc4lzj1JcQjxybIzNhjIzi6fQk',
-    //     tokenSecret: 'ZnWqIF9kZPx9zp9MH4KE0hKR9wn0ybgbg8DTY4fyQHWaw'
-    //   }
-    // ).subscribe((res)=>{
-    //     console.log(res);
-    // });
+    window.location.href = "https://api.twitter.com/oauth/request_token?oauth_consumer_key=q7RCfHxv2bQqqGVYhJhZ9yNxq&oauth_nonce=NlOTw6Fs5sv&oauth_signature=syqiKJUCLB/fsW2dXTSnBQIRhQM=&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1610449289&oauth_version=1.0";
   }
 
   // signOut() : any {
